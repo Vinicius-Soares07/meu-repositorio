@@ -1,4 +1,4 @@
-#1- saldo // 2-depositar // 3-tirar dinheiro
+#1- saldo // 2-depositar // 3-tirar dinheiro 
 running=True
 tela_inicio= ("1-Saldo", "2-Depositar", "3-Sacar dinheiro", "4-Sair")
 saldo=0
