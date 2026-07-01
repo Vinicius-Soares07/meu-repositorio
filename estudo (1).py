@@ -50,3 +50,4 @@ while running:
     elif operação==4:
         print("Saindo do programa, volte sempre!")
         break
+
