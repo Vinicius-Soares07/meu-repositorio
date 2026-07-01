@@ -35,12 +35,31 @@ class Triangulo(Forma):
 
 formas=[Circulo(4), Quadrado(6), Triangulo(3,2)]
 
-for forma in formas:
-    print(f"{forma.area()}m²")
-
-
-
-
-
+#for forma in formas:
+#    print(f"{forma.area()}m²")
 #circulo=Circulo()
 #um circulo (objeto) pode ser considerado um circulo (classe), mas também como uma forma, por herança
+
+#Duck typing: "se parece um pato e faz barulho como um pato, então deve ser um pato"
+
+class Animal:
+    vivo=True
+
+class Cachorro(Animal):
+    def falar(self):
+        print("Roof Roof!")
+
+class Gato(Animal):
+    def falar(self):
+        print("Miau!")
+
+class Carro:
+    vivo=False
+    def falar(self):#variavel deve ter o minimo de requisitos ou atributos necessarios, nesse caso o "falar"
+        print("BEEEEEP!")
+
+animais= [Cachorro(),Gato(), Carro()]
+
+for animal in animais:
+    animal.falar()
+    print(animal.vivo)
