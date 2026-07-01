@@ -35,8 +35,8 @@ class Triangulo(Forma):
 
 formas=[Circulo(4), Quadrado(6), Triangulo(3,2)]
 
-#for forma in formas:
-#    print(f"{forma.area()}m²")
+for forma in formas:
+    print(f"{forma.area()}m²")
 #circulo=Circulo()
 #um circulo (objeto) pode ser considerado um circulo (classe), mas também como uma forma, por herança
 
