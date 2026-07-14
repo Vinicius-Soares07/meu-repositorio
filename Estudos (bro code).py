@@ -1,65 +1,24 @@
-#Polimorfismo (varias formas ou faces)
-#Como alcançar o polimorfismo 1. Herança:Um objeto pode ser tratado como o mesmo tipo de uma classe parente
-#2: "Duck typing", Objeto deve ter os metodos/atributos necessarios
+#metodo-estatico= melhor para funções que não precisam de acesso a data de classes
+#metodos de instancias= melhor para operações que utilizam classes (objetos)
 
-#Herança:
-from abc import  ABC,abstractmethod
+class Trabalhador:
+    def __init__(self, nome, cargo):
+        self.nome=nome
+        self.cargo=cargo
 
-class Forma:
-    @abstractmethod
-    def area(self):
-        pass
+    def get_info(self):
+        return (f"{self.nome}= {self.cargo}") #metodo de instancia, pois precisa de uma classe superior para pegar as informações
 
-class Circulo(Forma):
-    def __init__(self, raio):
-        self.raio=raio
+    @staticmethod
+    def is_cargo_valido(cargo_1):#metodos estaticos não utilizam o "self"
 
-    def area(self):
-        return 3.14 * self.raio ** 2
+        cargo_validos= ["Supervisor","Auxiliar", "Zelador", "Chapeiro"]
+        return cargo_1 in cargo_validos
 
-class Quadrado(Forma):
-    def __init__(self, lado):
-        self.lado=lado
+clt1= Trabalhador("Leoncio", "Supervisor")
+clt2= Trabalhador("Zeca", "Chapeiro")
+clt3= Trabalhador("Pica-Pau", "Auxiliar")
+clt4= Trabalhador("Mandy", "Zelador")
 
-    def area(self):
-        return self.lado**2
+print(clt4.get_info())
 
-class Triangulo(Forma):
-    def __init__(self, altura, base):
-        self.altura=altura
-        self.base=base
-
-    def area(self):
-        return (self.base * self.altura)/2
-
-
-formas=[Circulo(4), Quadrado(6), Triangulo(3,2)]
-
-for forma in formas:
-    print(f"{forma.area()}m²")
-#circulo=Circulo()
-#um circulo (objeto) pode ser considerado um circulo (classe), mas também como uma forma, por herança
-
-#Duck typing: "se parece um pato e faz barulho como um pato, então deve ser um pato"
-
-class Animal:
-    vivo=True
-
-class Cachorro(Animal):
-    def falar(self):
-        print("Roof Roof!")
-
-class Gato(Animal):
-    def falar(self):
-        print("Miau!")
-
-class Carro:
-    vivo=False
-    def falar(self):#variavel deve ter o minimo de requisitos ou atributos necessarios, nesse caso o "falar"
-        print("BEEEEEP!")
-
-animais= [Cachorro(),Gato(), Carro()]
-
-for animal in animais:
-    animal.falar()
-    print(animal.vivo)
