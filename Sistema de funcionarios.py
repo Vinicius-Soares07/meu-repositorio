@@ -16,7 +16,6 @@ class Cargo(Funcionario):
         return dados+ (f"Departamento: {self.departamento}\n"
                        f"--------------------------")
 
-
 fun1= Cargo(nome="Josemar", salario=1300.121, departamento="TI")
 fun2= Cargo("Claudio", 3400, "Logistica")
 print(fun1.info_func())
