@@ -1,5 +1,3 @@
-from typing import override
-
 
 class Funcionario:
     def __init__(self, nome, salario):
@@ -7,14 +5,16 @@ class Funcionario:
         self.salario= salario
     def info_func(self):
         return (f"Funcionario: {self.nome} \n"
-                f"Salário: {self.salario:.2f} \n"
-                "--------------------------")
+                f"Salário: {self.salario:.2f} \n")
 class Cargo(Funcionario):
     def __init__(self,nome, salario, departamento):
         super().__init__(nome, salario)
         self.departamento=departamento
-        super().info_func()
-        print(f"Departament0: {departamento}")
+
+    def info_func(self):
+        dados= super().info_func()
+        return dados+ (f"Departamento: {self.departamento}\n"
+                       f"--------------------------")
 
 
 fun1= Cargo(nome="Josemar", salario=1300.121, departamento="TI")
